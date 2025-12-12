@@ -12,10 +12,6 @@ const server = http.createServer(async (request, response) => {
     const { pathname } = parse(request.url);
     // Récupération de la méthode HTTP (GET, POST, etc.)
     const method = request.method.toUpperCase();
-    // Route GET /hello-world
-    if (pathname === '/hello-world' && method === 'GET') {
-        return sendJson(response, 200, { message: 'Hello World!' });
-    }
 
     const recipeRouter = new Router("recipe");
     // Insertion de tous les routers
