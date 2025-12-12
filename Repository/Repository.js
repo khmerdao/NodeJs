@@ -112,12 +112,3 @@ module.exports = class Controller {
       return true;
     }
 }
-// Export des fonctions du service
-// module.exports = {
-//   getAll,
-//   getById,
-//   create,
-//   update,
-//   remove,
-// };
-

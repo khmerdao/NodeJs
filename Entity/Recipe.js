@@ -1,12 +1,12 @@
 class Recipe {
-    constructor(id = null, name, difficulty, ingredients = [], isVegetarien = false) {
-        this.id = id;
-        this.name = name;
-        this.difficulty = difficulty;
+    constructor(data = {}) {
+        this.id = data['id'] ?? null;
+        this.name = data['name'] ?? '';
+        this.difficulty = data['difficulty'] ?? null;
         /** @var [] */
-        this.ingredients = ingredients;
+        this.ingredients = data['ingredients'] ?? [];
         /** @var boolean */
-        this.isVegetarien = isVegetarien;
+        this.isVegetarien = data['isVegetarien'] ?? false;
     }
 
     toObject() {

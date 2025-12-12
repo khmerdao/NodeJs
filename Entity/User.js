@@ -1,10 +1,10 @@
 class User {
-    constructor(id = null, nom, prenom, favoriteRecipe = null) {
-        this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
+    constructor(data = {}) {
+        this.id = data['id'] ?? null;
+        this.nom = data['nom'] ?? null;
+        this.prenom = data['prenom'] ?? null;
         /** @var boolean */
-        this.favoriteRecipe = favoriteRecipe;
+        this.favoriteRecipe = data['favoriteRecipe'] ?? false;
     }
 
     toObject() {

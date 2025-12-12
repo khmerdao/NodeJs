@@ -3,14 +3,6 @@
 // Il appelle le service pour manipuler les données
 
 const { sendJson, notFound, parseBody }  = require('../Services/HttpService');
-// const {
-//   getAll,
-//   getById,
-//   create,
-//   update,
-//   remove,
-// } = require('../Repository/articleRepository');
-
 const Repository = require('../Repository/Repository');
 
 module.exports = class Controller {
@@ -26,19 +18,18 @@ module.exports = class Controller {
         return sendJson(res, 200, entities);
     }
 
-    // Récupère un article par son ID
+    // Récupère un object par son ID
     getById(res, id) {
-        const article = this.repository.getById(id);
-        if (!article) return notFound(res);
-        return sendJson(res, 200, article);
+        const object = this.repository.getById(id);
+        if (!object) return notFound(res);
+        return sendJson(res, 200, object);
     }
 
-    // Crée un nouvel article
+    // Crée un nouvel object
     async createObject(req, res) {
         try {
             // Lecture et parsing du corps de la requête
             const body = await parseBody(req);
-            console.log(body);
             // Validation des champs requis
             // if (!body.title || !body.author) {
             //     return sendJson(res, 400, { 
@@ -46,42 +37,42 @@ module.exports = class Controller {
             //     });
             // }
             
-            // Appel du service pour créer l'article
-            const newArticle = this.repository.create(body);
-            // Retour de l'article créé avec le statut 201
-            return sendJson(res, 201, newArticle);
+            // Appel du service pour créer l'object
+            const newObject = this.repository.create(body);
+            // Retour de l'object créé avec le statut 201
+            return sendJson(res, 201, newObject);
         } catch (err) {
             // Gestion des erreurs (JSON invalide, erreur de sauvegarde, etc.)
             return sendJson(res, 400, { error: err.message });
         }
     }
 
-    // Met à jour un article par son ID
+    // Met à jour un object par son ID
     async updateObject(req, res, id) {
         try {
             // Lecture et parsing du corps de la requête
             const body = await parseBody(req);
             
-            // Appel du service pour mettre à jour l'article
-            const updatedArticle = this.repository.update(id, body);
+            // Appel du service pour mettre à jour l'object
+            const updatedObject = this.repository.update(id, body);
             
-            // Si l'article n'existe pas, le service retourne null
-            if (!updatedArticle) return notFound(res);
+            // Si l'object n'existe pas, le service retourne null
+            if (!updatedObject) return notFound(res);
             
-            // Retour de l'article mis à jour
-            return sendJson(res, 200, updatedArticle);
+            // Retour de l'object mis à jour
+            return sendJson(res, 200, updatedObject);
         } catch (err) {
             // Gestion des erreurs (JSON invalide, erreur de sauvegarde, etc.)
             return sendJson(res, 400, { error: err.message });
         }
     }
 
-    // Supprime un article par son ID
+    // Supprime un object par son ID
     deleteObject(res, id) {
-    // Appel du service pour supprimer l'article
+    // Appel du service pour supprimer l'object
     const deleted = this.repository.remove(id);
     
-    // Si l'article n'existe pas, le service retourne false
+    // Si l'object n'existe pas, le service retourne false
     if (!deleted) {
         return notFound(res);
     }
@@ -92,11 +83,3 @@ module.exports = class Controller {
     return res.end();
     }
 }
-
-// module.exports = {
-//   getAll,
-//   getById,
-//   createObject,
-//   updateObject,
-//   deleteObject,
-// };
