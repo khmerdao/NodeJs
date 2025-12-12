@@ -1,0 +1,24 @@
+{
+  "name": "sonny-yem-api-nodejs",
+  "version": "1.0.0",
+  "description": "Un API TODO List",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khmerdao/NodeJs.git"
+  },
+  "author": "Sonny YEM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khmerdao/NodeJs/issues"
+  },
+  "homepage": "https://github.com/khmerdao/NodeJs#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "nodemon": "^3.1.11"
+  }
+}
