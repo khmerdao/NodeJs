@@ -17,15 +17,6 @@ const server = http.createServer(async (request, response) => {
         return sendJson(response, 200, { message: 'Hello World!' });
     }
 
-    const articleRouter = new Router("article");
-    // Insertion de tous les routers
-    if (pathname?.startsWith('/articles')) {
-        const handled = await articleRouter.router(request, response, pathname, method);
-        
-        // Si la route est gérée, on retourne
-        if (handled) return;
-    }
-
     const recipeRouter = new Router("recipe");
     // Insertion de tous les routers
     if (pathname?.startsWith('/recipes')) {
