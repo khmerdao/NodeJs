@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Nouille instantannée",
+    "difficulty": "Facile",
+    "ingredients": [],
+    "isVegetarien": true
+  },
+  {
+    "id": 2,
+    "name": "Nouille instantannée",
+    "difficulty": "Facile",
+    "ingredients": [],
+    "isVegetarien": true
+  }
+]
