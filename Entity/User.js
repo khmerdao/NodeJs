@@ -1,6 +1,4 @@
 class User {
-    // static fields = ["id", "nom", "prenom", "favoriteRecipe"];
-
     constructor(id = null, nom, prenom, favoriteRecipe = null) {
         this.id = id;
         this.nom = nom;
@@ -8,10 +6,6 @@ class User {
         /** @var boolean */
         this.favoriteRecipe = favoriteRecipe;
     }
-
-    // constructor(data) {
-    //     Object.assign(this, data);
-    // }
 
     toObject() {
         return {

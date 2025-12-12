@@ -71,14 +71,8 @@ module.exports = class Controller {
         for (const field of Object.keys(newObject)) {
           if (!(field in payload)) continue;
 
-          // if (field in payload) {
-          //   newObject[field] = payload[field];
-          // }
-
           if (Array.isArray(newObject[field])) {
-            newObject[field] = Array.isArray(payload[field])
-              ? payload[field]
-              : [];
+            newObject[field] = Array.isArray(payload[field]) ? payload[field] : [];
           } else {
             newObject[field] = payload[field];
           }
